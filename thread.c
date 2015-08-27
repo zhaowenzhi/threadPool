@@ -121,7 +121,7 @@ int addTaskToPool(void *(*process)(void *), void *arg) {
 	worker -> arg = arg;
 	pthread_mutex_lock (&(pool->queue_lock));
 	threadWork * tmp = pool -> queueHead;
-	if(tmp != NULL) {//此时队列中还没有任务
+	if(tmp != NULL) {//此时队列中有任务
 		while(tmp -> next) {
 			tmp = tmp -> next;
 		}
